@@ -1,0 +1,14 @@
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\HeadlessBrowserCRM.exe.config
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\HeadlessBrowserCRM.exe
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\HeadlessBrowserCRM.pdb
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\WebDriver.dll
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\bin\Debug\WebDriver.xml
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\obj\Debug\HeadlessBrowserCRM.csprojAssemblyReference.cache
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\obj\Debug\HeadlessBrowserCRM.csproj.CoreCompileInputs.cache
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\obj\Debug\HeadlessBrowserCRM.csproj.CopyComplete
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\obj\Debug\HeadlessBrowserCRM.exe
+C:\Users\kyle.reinertson\source\repos\HeadlessBrowserCRM\HeadlessBrowserCRM\obj\Debug\HeadlessBrowserCRM.pdb
