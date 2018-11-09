@@ -15,6 +15,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Firefox;
+using System.Threading;
 
 namespace HeadlessBrowserCRM
 {
@@ -104,10 +105,6 @@ namespace HeadlessBrowserCRM
                 var loginButton1 = driver.FindElementById("idSIButton9");
 
 
-                //WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(EC.element_to_be_clickable(userNameField)).send_keys(username);
-                //WebDriverWait wait3 = new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(EC.element_to_be_clickable(userPasswordField)).send_keys(password);
-                //WebDriverWait wait4 = new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(EC.element_to_be_clickable(loginButton1)).click();
-
                 WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                 wait.Until(drv => By.Id("i0116"));
 
@@ -118,18 +115,10 @@ namespace HeadlessBrowserCRM
                 wait.Until(drv => By.Id("idSIButton9"));
 
 
-                //   var wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-                //   var locator = By.Id("idSIButton9");
-                //   wait.Until(ExpectedConditions.ElementIsVisible(locator));
-                //   wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
-
-
-
-
                 userNameField.SendKeys(username);
                 userPasswordField.SendKeys(password);
                 loginButton1.Click();
-
+                Thread.Sleep(5000);
 
             }
             
