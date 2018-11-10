@@ -12,10 +12,10 @@ using System.Net.Mail;
 using System.Collections.Generic;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Firefox;
 using System.Threading;
+using OpenQA.Selenium.Support.UI;
 
 namespace HeadlessBrowserCRM
 {
@@ -86,42 +86,74 @@ namespace HeadlessBrowserCRM
         static void Main(string[] args)
         {
 
-            {
-                var chromeOptions = new ChromeOptions();
-                {
+            // IWebDriver driver = new ChromeDriver();
 
-                    chromeOptions.BinaryLocation = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
+            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService();
+            service.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+            FirefoxDriver driver = new FirefoxDriver(service);
 
-                };
-
-                // chromeOptions.AddArguments(new List<string>() { "headless", "disable-gpu" });
-
-                var driver = new ChromeDriver(chromeOptions);
-
-                driver.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-                var userNameField = driver.FindElementById("i0116");
-                var userPasswordField = driver.FindElementById("i0118");
-                var loginButton1 = driver.FindElementById("idSIButton9");
+            driver.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
+            IWebElement query = driver.FindElement(By.Id("i0116"));
+            query.SendKeys("admin@CRM108762.onmicrosoft.com");
+            query = driver.FindElement(By.Id("idSIButton9"));
+            query.Click();
+            // now you just have to do the same for the password page
+            //  driver.Quit();
 
 
-                WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                wait.Until(drv => By.Id("i0116"));
 
-                WebDriverWait wait3 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                wait.Until(drv => By.Id("i0118"));
+           // IWebDriver driver1 = new ChromeDriver();
+           // driver1.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
+            IWebElement query2 = driver.FindElement(By.Id("i0118"));
+            query2.SendKeys("kyle.reiner@2364");
+            query2 = driver.FindElement(By.Id("idSIButton9"));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            var locator = By.Id("idSIButton9");
+            wait.Until(drv => By.Id("idSIButton9"));
+            query2.Click();
 
-                WebDriverWait wait4 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                wait.Until(drv => By.Id("idSIButton9"));
+
+            IWebElement query3 = driver.FindElement(By.Id("idSIButton9"));
+            query3 = driver.FindElement(By.Id("idSIButton9"));
+            query3.Click();
 
 
-                userNameField.SendKeys(username);
-                userPasswordField.SendKeys(password);
-                loginButton1.Click();
-                Thread.Sleep(5000);
 
-            }
-            
+
+            /* {
+                 var chromeOptions = new ChromeOptions();
+                 {
+
+                     chromeOptions.BinaryLocation = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
+
+                 };
+
+                 // chromeOptions.AddArguments(new List<string>() { "headless", "disable-gpu" });
+
+                 var driver = new ChromeDriver(chromeOptions);
+                 //driver.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
+
+                 driver.Navigate().GoToUrl("https://portal.office.com");
+
+                 var userNameField = driver.FindElementById("i0116");
+                 WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                 wait2.Until(drv => By.Id("i0116"));
+
+                 var userPasswordField = driver.FindElementById("i0118");
+                 WebDriverWait wait3 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                 wait3.Until(drv => By.Id("i0118"));
+
+                 var loginButton1 = driver.FindElementById("idSIButton9"); 
+                 WebDriverWait wait4 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                 wait4.Until(drv => By.Id("idSIButton9"));
+
+                 userNameField.SendKeys(username);
+                 userPasswordField.SendKeys(password);
+                 loginButton1.Click();
+                 Thread.Sleep(5000);
+
+             }*/
+
         }
     }
 }
