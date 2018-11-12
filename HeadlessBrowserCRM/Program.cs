@@ -17,6 +17,7 @@ using OpenQA.Selenium.Firefox;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
 
+
 namespace HeadlessBrowserCRM
 {
     class Program
@@ -37,6 +38,10 @@ namespace HeadlessBrowserCRM
         static string path = @"C:\Users\kyle.reinertson\source\repos\TryThis.csv";
         static string html = "C:\\Users\\kyle.reinertson\\source\\repos\\CRMConsoleActivities\\CRMConsoleActivities\\HTMLPage1.html";
         static string muralPath = "https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1";
+        static string O365loginButtonId = "idSIButton9";
+        static string O365usernameId = "i0116";
+        static string O365passwordId = "i0118";
+
 
 
         #region ConnecttoCRM
@@ -86,73 +91,43 @@ namespace HeadlessBrowserCRM
         static void Main(string[] args)
         {
 
-            // IWebDriver driver = new ChromeDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.AddArguments("-headless");
 
             FirefoxDriverService service = FirefoxDriverService.CreateDefaultService();
             service.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
             FirefoxDriver driver = new FirefoxDriver(service);
 
             driver.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
-            IWebElement query = driver.FindElement(By.Id("i0116"));
-            query.SendKeys("admin@CRM108762.onmicrosoft.com");
-            query = driver.FindElement(By.Id("idSIButton9"));
+            IWebElement query = driver.FindElement(By.Id(O365usernameId));
+            query.SendKeys(username);
+            query = driver.FindElement(By.Id(O365loginButtonId));
             query.Click();
-            // now you just have to do the same for the password page
-            //  driver.Quit();
 
-
-
-           // IWebDriver driver1 = new ChromeDriver();
-           // driver1.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
-            IWebElement query2 = driver.FindElement(By.Id("i0118"));
-            query2.SendKeys("kyle.reiner@2364");
-            query2 = driver.FindElement(By.Id("idSIButton9"));
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            var locator = By.Id("idSIButton9");
-            wait.Until(drv => By.Id("idSIButton9"));
+            IWebElement query2 = driver.FindElement(By.Id(O365passwordId));
+            query2.SendKeys(password);
+            query2 = driver.FindElement(By.Id(O365loginButtonId));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            By locator = By.Id(O365loginButtonId);
+            wait.Until(drv => By.Id(O365loginButtonId));
             query2.Click();
 
-
-            IWebElement query3 = driver.FindElement(By.Id("idSIButton9"));
-            query3 = driver.FindElement(By.Id("idSIButton9"));
+            IWebElement query3 = driver.FindElement(By.Id(O365loginButtonId));
+            query3 = driver.FindElement(By.Id(O365loginButtonId));
             query3.Click();
 
+            IWebElement query4 = driver.FindElement(By.Id("TabSFA"));
+            query4 = driver.FindElement(By.Id("TabSFA"));
+            query4.Click();
 
+            IWebElement query5 = driver.FindElement(By.Id("Settings"));
+            query5 = driver.FindElement(By.Id("Settings"));
+            query5.Click();
 
+            IWebElement query6 = driver.FindElement(By.Id("nav_security"));
+            query6 = driver.FindElement(By.Id("nav_security"));
+            query6.Click();
 
-            /* {
-                 var chromeOptions = new ChromeOptions();
-                 {
-
-                     chromeOptions.BinaryLocation = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
-
-                 };
-
-                 // chromeOptions.AddArguments(new List<string>() { "headless", "disable-gpu" });
-
-                 var driver = new ChromeDriver(chromeOptions);
-                 //driver.Navigate().GoToUrl("https://crm108762.crm.dynamics.com/main.aspx?forceClassic=1");
-
-                 driver.Navigate().GoToUrl("https://portal.office.com");
-
-                 var userNameField = driver.FindElementById("i0116");
-                 WebDriverWait wait2 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                 wait2.Until(drv => By.Id("i0116"));
-
-                 var userPasswordField = driver.FindElementById("i0118");
-                 WebDriverWait wait3 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                 wait3.Until(drv => By.Id("i0118"));
-
-                 var loginButton1 = driver.FindElementById("idSIButton9"); 
-                 WebDriverWait wait4 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                 wait4.Until(drv => By.Id("idSIButton9"));
-
-                 userNameField.SendKeys(username);
-                 userPasswordField.SendKeys(password);
-                 loginButton1.Click();
-                 Thread.Sleep(5000);
-
-             }*/
 
         }
     }
